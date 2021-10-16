@@ -102,9 +102,6 @@ subMenuEl.addEventListener('click', function (el) {
 
 
 });
-function preventDefault() {
-
-}
 
 function buildSubMenu(linkObject) {
     subMenuEl.innerHTML = '';

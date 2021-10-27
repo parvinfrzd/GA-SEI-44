@@ -1,7 +1,8 @@
 html, body {
     background-color: white;
-    display: flex;
-    justify-content: center;
+    width: -webkit-fill-available;
+    height: -webkit-fill-available;
+    margin: 20px 20px 20px 20px;
 
 }
 :root { 
@@ -11,14 +12,26 @@ html, body {
 .main-container {
     width: 100%;
     display: flex;
-    flex-direction: column;
-    flex-wrap: wrap;
-    gap: 20px;
+    flex-direction: row;
+    gap: 10px;
     justify-content: center;
 }
 
-.grid-container {
+.calculator {
     width: 50%;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    justify-content: center;
+    align-content: center;
+    border: 1px solid grey;
+    border-radius: 12px;
+    text-align: center;
+    font-size: 30px;
+}
+
+.grid-container {
+    width: 100%;
     display: grid;
     justify-content: center;
     align-content: center;
@@ -26,11 +39,28 @@ html, body {
     grid-template-columns: repeat(4, auto);
 }
 
+.clear-button {
+    width: 100px;
+    height: 100px;
+    background-color: rgb(248, 70, 70);
+    margin-bottom: 20px;
+    border: 1px solid grey;
+    border-radius: 6px;
+    color: white;
+    align-content: center;
+    text-align: center;
+    font-size: 35px;
+    margin: 0 auto;
+}
+
+
 .number, .char {
     width: var(--cell-size);
     height: var(--cell-size);
     border: 1px solid grey;
+    border-radius: 6px;
 }
+
 
 .number {
     background-color: darkgray;
@@ -46,17 +76,33 @@ html, body {
     color: black;
 }
 
+.number:hover, .char:hover, .clear-button:hover {
+    background-color: rgb(61, 61, 61);
+}
+
 .result-container {
-    background-color: blue;
-    width: 50%;
+    background-color: white;
+    width: 30%;
+    height: 50%;
     display:flex;
     flex-direction: column;
+    text-align: center;
+    font-size: 50px;
+    border: 1px solid grey;
+    border-radius: 12px;
 }
 
 .console {
-    width: var(--cell-size);
-    height: var(--cell-size);
-    border: 1px solid grey;
+    width: 100%;
+    margin-top: 30px;
+    /* border: 1px solid grey; */
     justify-content: center;
     align-content: center;
+    border-radius: 6px;
+
+    text-align: center;
+    font-size: 50px;
+
 }
+
+

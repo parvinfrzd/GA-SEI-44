@@ -1,0 +1,105 @@
+html, body {
+    zoom: 50%;
+    display: flex;
+    justify-content: center;
+}
+
+/* main container: 2 columns */
+.container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 200px;
+    justify-content: center;
+}
+
+
+
+/* left side: logo and navigation */
+.left-side {
+    flex-direction: column;
+    align-self: center;
+    align-items: center;
+    column-gap: 30px;
+}
+
+.logo{
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+    justify-content: left;
+    margin-bottom: 60px;
+    opacity: 0.5;
+    width: 60% 
+}
+.category{
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+    justify-content: left;
+    margin-bottom: 40px;
+
+    color: grey;
+    font-size: 30px;
+    text-align: left;
+}
+
+.navigation{
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+    justify-content: left;
+
+    color: grey;
+    font-size: 30px;
+    text-align: left;
+}
+
+ul{
+    margin: 0%;
+    padding: 0%;
+}
+
+li{ 
+    list-style-type: none;
+    margin-bottom: 30px;  
+}
+
+
+/* right side row: */
+.right-side{
+    display:flex;
+    flex-direction: column;
+    gap: 30px;
+    align-items: stretch;
+}
+
+.first-row {
+    display: flex;
+    justify-content: space-around;
+    flex-direction: row;
+    width: 100%;
+}
+
+
+.second-row{
+    display: flex;
+    flex-direction: row;
+    gap: 30px;
+}
+
+
+.right-third-row{
+    display: flex;
+    flex-direction: row;
+    gap: 30px;
+}
+
+/* QUESTION: HOW CAN I IMPROVE THIS? TRYING NOT TO HAVE TWO DIFFERENT CLASSES */
+.right-third-row .third-row {
+    width: 50%;
+}
+
+
+
+

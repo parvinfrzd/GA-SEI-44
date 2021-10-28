@@ -54,7 +54,7 @@ html, body {
 }
 
 
-.number, .char {
+.number, .char , .equal{
     width: var(--cell-size);
     height: var(--cell-size);
     border: 1px solid grey;
@@ -69,14 +69,14 @@ html, body {
     color: white;
 }
 
-.char {
+.char, .equal {
     background-color: orange;
     text-align: center;
     font-size: 60px;
     color: black;
 }
 
-.number:hover, .char:hover, .clear-button:hover {
+.number:hover, .char:hover, .clear-button:hover, .equal:hover {
     background-color: rgb(61, 61, 61);
 }
 

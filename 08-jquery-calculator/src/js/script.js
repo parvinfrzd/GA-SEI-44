@@ -51,16 +51,26 @@ const power = (a, b) => { return Math.pow(a, b) };
 function calculation(char, num1, num2) {
     if (isSecondNumberClicked) {
         let result
-        if (char === '+')
-            result = increment(parseInt(num1), parseInt(num2));
-        else if (char === '-')
-            result = decrease(parseInt(num1), parseInt(num2));
-        else if (char === '*')
-            result = multiply(parseInt(num1), parseInt(num2));
-        else if (char === '/')
-            result = division(parseInt(num1), parseInt(num2));
-        else if (char === '^')
-            result = power(parseInt(num1), parseInt(num2));
+        switch (char) {
+            case '+':
+                result = increment(parseInt(num1), parseInt(num2));
+                break;
+            case '-':
+                result = decrease(parseInt(num1), parseInt(num2));
+                break;
+            case '*':
+                result = multiply(parseInt(num1), parseInt(num2));
+                break;
+            case '/':
+                result = division(parseInt(num1), parseInt(num2));
+                break;
+            case '^':
+                result = power(parseInt(num1), parseInt(num2));
+                break;
+
+            default:
+                break;
+        }
         $('.result').text(result);
     }
 }

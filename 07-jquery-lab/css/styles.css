@@ -1,0 +1,56 @@
+html , body {
+    /* width: 50%; */
+    background-color: wheat;
+    display: flex;
+    flex-direction: column;
+}
+
+h1 {
+    color : rgb(1, 71, 1);
+}
+
+.form {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    gap: 10px;
+}
+
+#skill-input , #submit-button{
+    height: 25px;
+    background-color: rgb(224, 255, 224);
+    border-color:rgb(1, 71, 1);
+    border-radius: 6px;
+}
+
+.dev-skills {
+    display: flex;
+    padding: 2px;
+    flex-direction: column;
+    gap: 10px;
+    align-items: left;
+    justify-content: left;
+
+}
+.list-Item {
+    display: flex;
+    flex-direction: row;
+    gap: 30px;
+}
+
+#list {
+    font-size: 20px;
+    color: orange;
+    list-style-type: none;
+    border: 1px solid orange;
+    border-radius: 6px;
+    padding: 5px;
+}
+#removeDiv {
+    height: 30px;
+    width: 30px;
+    background-color: rgb(241, 80, 80);
+    border-radius: 6px;
+    border: none;
+}

@@ -23,7 +23,14 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', indexRouter);
 app.use('/skills', skillsRouter);
 
+app.use(function (req, res, next) {
+  console.log('Hello SEI!');
+  // Add a time property to the req object
+  req.time = new Date().toLocaleTimeString();
+  next();
+});
 
+app.use(express.urlencoded({ extended: false }));
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {

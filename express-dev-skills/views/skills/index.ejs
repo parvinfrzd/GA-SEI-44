@@ -1,0 +1,12 @@
+<body>
+    <h1>Dev Skills</h1>
+    <ul>
+        <% skills.forEach(function(t) { %>
+            <li>
+                <%= t.skill %>
+                    -
+                    <%= t.advanced ? 'Yes' : 'Nope' %>
+            </li>
+            <% }); %>
+    </ul>
+</body>

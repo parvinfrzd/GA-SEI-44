@@ -2,10 +2,9 @@
     <h1>Dev Skills</h1>
     <ul>
         <% skills.forEach(function(t) { %>
-            <li>
-                <%= t.skill %>
-                    -
-                    <%= t.advanced ? 'Yes' : 'Nope' %>
+            <li><a href="/skills/<%= t.id %>">
+                    <%= t.skill %>
+                </a> - <%= t.advanced ? 'ADVANCED' : 'NOT ADVANCED' %>
             </li>
             <% }); %>
     </ul>

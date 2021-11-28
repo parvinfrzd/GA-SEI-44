@@ -8,6 +8,11 @@ function getAll() {
     return skills;
 }
 
+function getOne(id) {
+    return skills.find((skill) => skill.id === parseInt(id));
+}
+
 module.exports = {
-    getAll
+    getAll,
+    getOne,
 };

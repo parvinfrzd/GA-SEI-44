@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>
+        <%= typeof title==='undefined' ? 'Default Title' : title %>
+    </title>
+    <link rel="stylesheet" href="/stylesheets/style.css" />
+</head>
+
+<body>
+    <% if (skill) { %>
+        <h1>Skill #<%= skill.id %>
+        </h1>
+        <h3>
+            <%= skill.skill %>
+        </h3>
+        <h3>Advanced: <%= skill.advanced ? 'Yes' : 'No' %>
+        </h3>
+        <% } else { %>
+            <h3>Skill Not Found</h3>
+            <% } %>
+</body>
+
+</html>

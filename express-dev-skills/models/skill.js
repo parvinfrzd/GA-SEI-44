@@ -14,12 +14,18 @@ function getOne(id) {
 
 function create(skill) {
     skill.id = Date.now() % 1000000;
-    // New todos wouldn't be done :)
     skill.advanced = false;
     skills.push(skill);
+}
+
+function deleteSkill(id) {
+    const idx = skills.findIndex(skill => skill.id === parseInt(id));
+    skills.splice(idx, 1);
 }
 
 module.exports = {
     getAll,
     getOne,
+    create,
+    delete: deleteSkill,
 };

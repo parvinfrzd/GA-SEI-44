@@ -23,9 +23,18 @@ function deleteSkill(id) {
     skills.splice(idx, 1);
 }
 
+function update(id, skill) {
+    // Find the index based on the id of the todo object
+    const idx = skills.findIndex(skill => skill.id === parseInt(id));
+    // Ensure the id is copied over
+    skill.id = parseInt(id);
+    skills.splice(idx, 1, skill);
+}
+
 module.exports = {
     getAll,
     getOne,
     create,
     delete: deleteSkill,
+    update,
 };

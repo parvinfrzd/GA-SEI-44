@@ -1,10 +1,7 @@
-var Flight = require('../models/flight');
+let Flight = require('../models/flight');
 
-module.exports = {
-    create
-};
 
-function create(req, res) {
+function createDestination(req, res) {
     Flight.findById(req.params.id, function (err, flight) {
         flight.destinations.push(req.body);
         flight.save(function (err) {
@@ -12,3 +9,7 @@ function create(req, res) {
         });
     });
 }
+
+module.exports = {
+    create: createDestination,
+};

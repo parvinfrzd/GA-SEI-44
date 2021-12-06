@@ -1,29 +1,32 @@
-<link rel='stylesheet' href='/stylesheets/style.css' />
+<%- include('../partials/header') %>
 
-<h2>Place A New Flight</h2>
-<form action="/flights" method="POST">
-    <label>Airline:
-        <input list="airline" type="text" name="airline">
-        <datalist id="airline">
-            <option value="American">
-            <option value="Southwest">
-            <option value="United">
-        </datalist>
-    </label><br>
-    <label>Airport:
-        <select name="airport">
-            <option value="AUS">AUS</option>
-            <option value="DFW">DFW</option>
-            <option value="DEN">DEN</option>
-            <option value="LAX">LAX</option>
-            <option value="SAN">SAN</option>
-        </select>
-    </label><br>
-    <label>Flight Number:
-        <input type="number" name="flightNo" min="0" max="9999">
-    </label><br>
-    <label>Departure Time:
-        <input type="datetime-local" name="departs" value="2018-06-12T19:30" min="2018-06-07T00:00">
-    </label><br>
-    <input type="submit" value="Add Flight">
-</form>
+
+    <h2>Place A New Flight</h2>
+    <form action="/flights" method="POST">
+        <label>Airline:
+            <input list="airline" type="text" name="airline">
+            <datalist id="airline">
+                <option value="American">
+                <option value="Southwest">
+                <option value="United">
+            </datalist>
+        </label><br>
+        <label>Airport:
+            <select name="airport">
+                <option value="AUS">AUS</option>
+                <option value="DFW">DFW</option>
+                <option value="DEN">DEN</option>
+                <option value="LAX">LAX</option>
+                <option value="SAN">SAN</option>
+            </select>
+        </label><br>
+        <label>Flight Number:
+            <input type="number" name="flightNo" min="0" max="9999">
+        </label><br>
+        <label>Departure Time:
+            <input type="datetime-local" name="departs" value="2018-06-12T19:30" min="2018-06-07T00:00">
+        </label><br>
+        <input type="submit" value="Add Flight">
+    </form>
+
+    <%- include('../partials/footer') %>

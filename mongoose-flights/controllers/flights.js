@@ -2,16 +2,16 @@ const Flight = require('../models/flight');
 
 function showAllFlights(req, res) {
     Flight.find({}, function (err, flights) {
-        res.render('flights/index', { flights });
+        res.render('flights/index', { title: 'All Flights', flights });
     });
 }
 function addFlights(req, res) {
-    res.render('flights/new')
+    res.render('flights/new', { title: 'Add New Flight' })
 }
 
 function show(req, res) {
-    Flight.findById(req.params.id, function (err, flights) {
-        res.render('flights/show', { title: 'Flight Destination', flights });
+    Flight.findById(req.params.id, function (err, flight) {
+        res.render('flights/show', { title: 'Flight Detail', flight });
     });
 }
 

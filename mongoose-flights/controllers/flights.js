@@ -10,7 +10,9 @@ function addFlights(req, res) {
 }
 
 function show(req, res) {
-    console.log('whatever');
+    Flight.findById(req.params.id, function (err, flights) {
+        res.render('flights/show', { title: 'Flight Destination', flights });
+    });
 }
 
 function createFlight(req, res) {

@@ -3,8 +3,8 @@
 <h2>Place A New Flight</h2>
 <form action="/flights" method="POST">
     <label>Airline:
-        <input list="airlines" type="text" name="airline">
-        <datalist id="airlines">
+        <input list="airline" type="text" name="airline">
+        <datalist id="airline">
             <option value="American">
             <option value="Southwest">
             <option value="United">
@@ -19,11 +19,11 @@
             <option value="SAN">SAN</option>
         </select>
     </label><br>
-    <label>Flight Number
-        <input type="number" id="flightno" min="0" max="9999">
+    <label>Flight Number:
+        <input type="number" name="flightNo" min="0" max="9999">
     </label><br>
     <label>Departure Time:
-        <input type="datetime-local" id="flighttime" value="2018-06-12T19:30" min="2018-06-07T00:00">
+        <input type="datetime-local" name="departs" value="2018-06-12T19:30" min="2018-06-07T00:00">
     </label><br>
     <input type="submit" value="Add Flight">
 </form>

@@ -18,6 +18,24 @@
         <div>
             <%= flight.departs %>
         </div>
+        <!-- TICKET PART!!!!!!! -->
+        <div>Ticket:</div>
+        <ul>
+            <%- flight.tickets.map(t=>
+                `<li>${t.name} <small>${t.born.toLocaleDateString()}</small></li>`
+                ).join('') %>
+        </ul>
+    </section>
+
+    <!-- add to cast form below this comment -->
+    <form id="add-per-to-cast" action="/flights/<%=flight._id%>" method="POST">
+        <select name="ticketId">
+            <%- tickets.map(t=>
+                `<option value="${t._id}">${t.name}</option>`
+                ).join('') %>
+        </select>
+        <button type="submit">Add to Tickets</button>
+    </form>
     </section>
 
     <br><br>

@@ -1,4 +1,6 @@
 const Flight = require('../models/flight');
+const Ticket = require('../models/ticket');
+
 
 function showAllFlights(req, res) {
     Flight.find({}, function (err, flights) {
@@ -10,8 +12,16 @@ function addFlights(req, res) {
 }
 
 function show(req, res) {
-    Flight.findById(req.params.id, function (err, flight) {
-        res.render('flights/show', { title: 'Flight Detail', flight });
+    Flight.findById(req.params.id).populate('ticket').exec(function (err, flight) {
+        Ticket.find(
+            { _id: { $nin: flight.tickets } },
+            function (err, tickets) {
+                console.log(tickets);
+                res.render('flights/show', {
+                    title: 'Ticket Information', flight, tickets
+                });
+            }
+        );
     });
 }
 
@@ -28,7 +38,7 @@ function createFlight(req, res) {
     flight.save(function (err) {
         if (err) return res.render('flights/new');
         console.log(flight);
-        res.redirect('/flights');
+        res.redirect(`/flights/${flight._id}`);
     });
 }
 

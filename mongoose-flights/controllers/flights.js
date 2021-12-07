@@ -15,21 +15,26 @@ function show(req, res) {
     });
 }
 
-function createFlight(req, res) {
+function createFlight(req, res, next) {
     // convert nowShowing's checkbox of nothing or "on" to boolean
     req.body.nowShowing = !!req.body.nowShowing;
 
-    for (let key in req.body) {
-        if (req.body[key] === '') delete req.body[key];
-    }
+    // for (let key in req.body) {
+    //     if (req.body[key] === '') delete req.body[key];
+    // }
 
 
     const flight = new Flight(req.body);
-    flight.save(function (err) {
-        if (err) return res.render('flights/new');
-        console.log(flight);
+    console.log(flight);
+    flight.save(function (error) {
+        // if (error) {
+        //     res.render('error', error);
+        //     next();
+        // }
+        // console.log(flight);
         res.redirect('/flights');
     });
+
 }
 
 module.exports = {

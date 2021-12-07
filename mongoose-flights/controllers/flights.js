@@ -30,7 +30,7 @@ function createFlight(req, res, next) {
     const flight = new Flight(req.body);
     console.log(flight);
     flight.save(function (error) {
-        res.redirect('/flights');
+        res.redirect(`/flights/${flight._id}`);
     });
 }
 

@@ -12,7 +12,7 @@ function addFlights(req, res) {
 }
 
 function show(req, res) {
-    Flight.findById(req.params.id).populate('ticket').exec(function (err, flight) {
+    Flight.findById(req.params.id).populate('tickets').exec(function (err, flight) {
         Ticket.find(
             { _id: { $nin: flight.tickets } },
             function (err, tickets) {
@@ -26,20 +26,12 @@ function show(req, res) {
 }
 
 function createFlight(req, res, next) {
-    // convert nowShowing's checkbox of nothing or "on" to boolean
     req.body.nowShowing = !!req.body.nowShowing;
-
-    // for (let key in req.body) {
-    //     if (req.body[key] === '') delete req.body[key];
-    // }
-
-
     const flight = new Flight(req.body);
     console.log(flight);
     flight.save(function (error) {
         res.redirect('/flights');
     });
-
 }
 
 module.exports = {

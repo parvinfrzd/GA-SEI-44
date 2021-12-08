@@ -3,8 +3,9 @@ const Flight = require('../models/flight');
 
 function addToTicket(req, res) {
     Flight.findById(req.params.id, function (err, flight) {
-        flight.cast.push(req.body.ticketId);
+        flight.tickets.push(req.body.ticketId);
         flight.save(function (err) {
+            console.log(err);
             res.redirect(`/flights/${flight._id}`);
         });
     });

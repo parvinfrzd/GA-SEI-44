@@ -1,0 +1,87 @@
+<%- include('../partials/header') %>
+
+    <section id="show-page">
+
+        <div>Airline: </div>
+        <div>
+            <%= flight.airline %>
+        </div>
+        <div>Airport: </div>
+        <div>
+            <%= flight.airport %>
+        </div>
+        <div>Flight Number: </div>
+        <div>
+            <%= flight.flightNo %>
+        </div>
+        <div>Departure Time: </div>
+        <div>
+            <%= flight.departs %>
+        </div>
+        <!-- TICKET PART!!!!!!! -->
+        <div>Ticket:</div>
+        <ul>
+            <%- flight.tickets.map(t=>
+                `<li>${t.seat} <small>${t.price}</small></li>`
+                ).join('') %>
+        </ul>
+    </section>
+
+    <!-- add to cast form below this comment -->
+    <form id="add-per-to-cast" action="/flights/<%=flight._id%>/tickets" method="POST">
+        <select name="ticketId">
+            <%- ticket.map(t=>
+                `<option value="${t._id}">${t.seat}</option>`
+                ).join('') %>
+        </select>
+        <button type="submit">Add to Tickets</button>
+    </form>
+    </section>
+
+    <br><br>
+    <h2>Destinations</h2>
+    <form id="add-dest-form" method="POST" action="/flights/<%= flight._id %>/destinations">
+        <label>Destination:</label>
+        <textarea name="content"></textarea>
+        <label>Airport:
+            <select name="airport">
+                <option value="AUS">AUS</option>
+                <option value="DFW">DFW</option>
+                <option value="DEN">DEN</option>
+                <option value="LAX">LAX</option>
+                <option value="SAN">SAN</option>
+            </select>
+        </label>
+        <label>Arrival:
+            <input type="datetime-local" name="arrival" value="2018-06-12T19:30" min="2018-06-07T00:00">
+        </label>
+
+        <input type="submit" value="Add Deestination">
+    </form>
+
+    <% if (flight.destinations.length) { %>
+        <table>
+            <thead>
+                <tr>
+                    <th>Airport</th>
+                    <th>Arrival</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% flight.destinations.forEach(function(r) { %>
+                    <tr>
+                        <td>
+                            <%= r.airport %>
+                        </td>
+                        <td>
+                            <%= r.arrival %>
+                        </td>
+                    </tr>
+                    <% }); %>
+            </tbody>
+        </table>
+        <% } else { %>
+            <h5>No destinations :(</h5>
+            <% } %>
+
+                <%- include('../partials/footer') %>

@@ -63,19 +63,23 @@ Promise.resolve().then(function () {
 }).then(function (result) {
     console.log('11): ', result)
 
-})
-
-
-
-
-    // 12) Add a reference to performer 'Bill Murray' to
-    //     the movie Caddyshack's cast property and save.
-    //     console.log the updated movie.
-
-
-    .then(function () {
-        process.exit();
-    });
+    //12) first find the movie Caddyshacks   and the performer  Bill Murray
+    return Promise.all([
+        Movie.findOne({ title: 'Caddyshack' })
+        , Performer.findOne({ name: 'Bill Murray' })
+    ]);
+    //then add Bill Murray to the Cadyshack's cast
+}).then(function (result) {
+    result[0].cast.push(result[1]);
+    //as the result, return the movie's model
+    result[0].save();
+    return result[0];
+}).then(function (result) {
+    //now print  the result
+    console.log('12): ', result)
+}).then(function () {
+    process.exit();
+});
 
 
 

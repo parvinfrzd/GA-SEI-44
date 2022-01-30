@@ -12,3 +12,9 @@
 #      etc.
 
 # Hint: The next number is found by adding the two numbers before it
+
+for n in range(50): 
+    if(n == 0): 
+        print(f'term: 0 / number 0') 
+    else:  
+        print(f'term: {n} / number {n + (n-1)}') 
